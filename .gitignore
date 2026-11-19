@@ -1,0 +1,4 @@
+# Ignore local configuration files containing secrets
+config.js
+# Ignore DS_Store files created by macOS
+.DS_Store

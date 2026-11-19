@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://cwest8900.github.io/student-recognition/
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+
+      # # Generates config.js using the secret stored in GitHub
+      # - name: Generate config.js
+      #   run: |
+      #     echo "window.APP_CONFIG = { googleApiKey: '${{ secrets.CALENDAR_API_KEY }}' };" > config.js
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6.0.0
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
