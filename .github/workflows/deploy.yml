@@ -19,11 +19,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7.0.1
 
-      # # Generates config.js using the secret stored in GitHub
-      # - name: Generate config.js
-      #   run: |
-      #     echo "window.APP_CONFIG = { googleApiKey: '${{ secrets.CALENDAR_API_KEY }}' };" > config.js
-
       - name: Setup Pages
         uses: actions/configure-pages@v6.0.0
 
